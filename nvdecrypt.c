@@ -24,10 +24,14 @@ int main(int argc, char **argv)
         exit(3);
     }
 
-    if((fo = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC)) <= 0) {
-        fprintf(stderr, "Error opening output file: %s\n", argv[2]);
-        perror("Error");
-        exit(3);
+    if(!strcmp(argv[2], "-")) {
+        fo = STDOUT_FILENO;
+    } else {
+        if((fo = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644)) <= 0) {
+            fprintf(stderr, "Error opening output file: %s\n", argv[2]);
+            perror("Error");
+            exit(3);
+        }
     }
 
     if((ctx = nvaes_open()) < 0) {

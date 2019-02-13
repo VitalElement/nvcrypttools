@@ -1,10 +1,10 @@
 #!/usr/bin/make
-CROSS_COMPILE ?= arm-none-linux-gnueabi-
+CROSS_COMPILE ?= aarch64-linux-gnu-
 
 CC := $(CROSS_COMPILE)gcc
 MAKE ?= make
 
-CFLAGS := -O2 -Wall -Wno-unused-variable -static -march=armv7-a -mthumb -I.
+CFLAGS := -O2 -Wall -Wno-unused-variable -static -I.
 LDFLAGS := 
 STRIP := $(CROSS_COMPILE)strip
 

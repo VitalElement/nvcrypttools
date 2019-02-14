@@ -10,6 +10,7 @@ libnvaes_sources += 'nvrcm.c'
 
 libnvaes = static_library('nvaes', libnvaes_sources)
 
-executable('nvencrypt', 'nvencrypt.c', link_with: [libnvaes])
-executable('nvdecrypt', 'nvdecrypt.c', link_with: [libnvaes])
-executable('nvsign', 'nvsign.c', link_with: [libnvaes])
+executable('nvencrypt', 'nvencrypt.c', link_with: [libnvaes], install: true)
+executable('nvdecrypt', 'nvdecrypt.c', link_with: [libnvaes], install: true)
+executable('nvsign', 'nvsign.c', link_with: [libnvaes], install: true)
+
